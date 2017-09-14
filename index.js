@@ -1,5 +1,5 @@
 //ONLOAD PREPARE
-/*
+/**
 addEventListener("load", clickHandleSetUp);
 addEventListener("load", latLong);
 
