@@ -1,18 +1,14 @@
 //ONLOAD PREPARE
+/*
 addEventListener("load", clickHandleSetUp);
 addEventListener("load", latLong);
 
 //GEOLOCATION
-if ("geolocation" in navigator) {
-  console.log("geolocation attained")
-} else {
-  console.log("geolocation not attained")
-}
-
 function latLong () {
-  if (!navigator.geolocation) {
-    alert("Geolocation not supported, some features may not work");
-    return;
+  if ("geolocation" in navigator) {
+    console.log("geolocation attained")
+  } else {
+    console.log("geolocation not attained")
   }
 
 function success(position) {
@@ -62,3 +58,4 @@ function responseHandler() {
     console.log('server reached, returns error')
   }
 }
+*/
