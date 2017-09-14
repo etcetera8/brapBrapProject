@@ -24,9 +24,9 @@ function clickHandler(event) {
 }
 
 function responseHandler() {
-  if (request.status >= 200 && request.status < 400) {
+  if (this.status >= 200 && this.status < 400) {
     //Success!
-    var data = JSON.parse(request.responseText);
+    var data = JSON.parse(this.responseText);
     console.log(data)
   } else {
     console.log('server reached, returns error')
