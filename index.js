@@ -1,4 +1,4 @@
-//global variables
+//GLOBAL VARIABLES
 var lat = 0;
 var long = 0;
 var key = 0;
