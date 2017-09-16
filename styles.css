@@ -88,7 +88,7 @@ body {
 }
 
 .preach {
-  margin: 3.5% 5% 0% 5%;
+  margin: 3.5% 5% 3.5% 5%;
   width: 33%;
   float: left;
   font-size: 18px;
@@ -102,11 +102,22 @@ em {
   height: 200px;
 }
 
-.tfkLogo {
-  margin: 4% 30% 0% 0%;
-  float: right;
-  height: 60%;
+.logo {
+  position: absolute;
+  display: inline;
+  top: 25%;
+  height: 50%;
   width: auto;
+}
+
+.tfkLogo {
+  margin: 5% 30% 5% 5%;
+  float: left;
+}
+
+.imbaLogo {
+  margin: 5% 30% 5% 25%;
+  float: right;
 }
 
 /**Trail Finder **/
@@ -116,19 +127,34 @@ em {
   position: relative;
   background-image: url("images/mtb.jpg");
   background-size: 100%;
-  background-attachment: fixed;
   background-repeat: no-repeat;
   width: 100%;
-  height: 250px;
+  height: 500px;
   min-height: 100px;
   overflow: hidden;
   margin-top: -25%;
 }
 
 .left {
+  display: block;
   background-color: black;
   opacity: 0.3;
-  border: 1px solid red;
-  width: 100%;
-  heigth: 250px;
+  width: 45%;
+  height: auto;
+  float:left;
+  border: 2px solid white;
+  margin: 1%;
+  padding: 1%;
+}
+
+.right {
+  display: block;
+  background-color: black;
+  opacity: 0.3;
+  width: 45%;
+  height: auto;
+  float:right;
+  border: 2px solid white;
+  margin: 1%;
+  padding: 1%;
 }
