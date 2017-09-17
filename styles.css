@@ -134,27 +134,20 @@ em {
   overflow: hidden;
   margin-top: -25%;
 }
-
-.left {
+.screen {
   display: block;
-  background-color: black;
-  opacity: 0.3;
+  background: rgba(0, 0, 0, 0.3);
   width: 45%;
   height: auto;
-  float:left;
-  border: 2px solid white;
   margin: 1%;
   padding: 1%;
+  border: 2px solid white;
+}
+
+.left {
+  float:left;
 }
 
 .right {
-  display: block;
-  background-color: black;
-  opacity: 0.3;
-  width: 45%;
-  height: auto;
   float:right;
-  border: 2px solid white;
-  margin: 1%;
-  padding: 1%;
 }
