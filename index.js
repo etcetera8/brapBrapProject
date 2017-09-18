@@ -1,9 +1,8 @@
 //global variables
 var lat = 0;
 var long = 0;
-var key = 0;
+var key = '200021803-8942a6c5fbed31eeee08f074613141b1';
 //ONLOAD PREPARE
-addEventListener("load", clickHandleSetUp);
 addEventListener("load", latLong);
 
 //GEOLOCATION
@@ -25,16 +24,10 @@ function error() {
   navigator.geolocation.getCurrentPosition(success, error);
 }
 
-
-//CLICK HANDLER SETUP
-function clickHandleSetUp() {
-  key = '200021803-8942a6c5fbed31eeee08f074613141b1';
-  var button= document.getElementById("magic");
-  button.addEventListener("click", clickHandler);
-};
-
 // CLICK HANDLER EVENT / THE CLICK
 function clickHandler(event) {
+  var button= document.getElementById("apiCall");
+  button.addEventListener("click", clickHandler);
   var request = new XMLHttpRequest();
   var url = 'https://www.mtbproject.com/data/get-trails?lat='+lat+'&lon='+long+'&maxDistance=10&key='+key+'';
   request.open('GET', url, true);
