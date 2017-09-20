@@ -68,30 +68,32 @@ function responseHandler() {
               starPhoto.src= "images/stars/5.png";
               rating.appendChild(starPhoto);
           } 
-        else if (trailStars > 4 || trailStars <= 4.5) {
+        else if (trailStars > 4 && trailStars <= 4.5) {
               starPhoto.src= "images/stars/4.5.png";
               rating.appendChild(starPhoto);
           } 
-        else if (trailStars > 3.5 || trailStars <= 4) {
+        else if (trailStars > 3.5 && trailStars <= 4) {
               starPhoto.src= "images/stars/4.png";
               rating.appendChild(starPhoto);
           } 
-        else if (trailStars > 3 || trailStars <= 3.5) {
+        else if (trailStars > 3 && trailStars <= 3.5) {
               starPhoto.src= "images/stars/3.5.png";
               rating.appendChild(starPhoto);
           } 
-        else if (trailStars > 2.5 || trailStars <= 3) {
+        else if (trailStars > 2.5 && trailStars <= 3) {
               starPhoto.src= "images/stars/3.png";
               rating.appendChild(starPhoto);
           } 
 
 
       var trailDifficulty = data.trails[0].difficulty;
+      var trailLocation = data.trails[0].location;
 
 
 
       document.getElementById("trailName").innerHTML = trailName;
       document.getElementById("trailUrl").href = trailUrl;
+      document.getElementById("trailLocation").innerHTML = "<i>" +trailLocation + "</i>"
 
 
       tag.appendChild(trailPhoto);
