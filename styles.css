@@ -15,7 +15,7 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   width: 100%;
-  height: 500px;
+  height: 400px;
   min-height: 100px;
   overflow: hidden;
 }
@@ -33,10 +33,14 @@ body {
   margin: 0;
   float: left;
   display: inline;
-  height: 100%;
-  width: auto;
-  position: relative;
+  width: 100%;
+  height: auto;
   bottom: 0;
+
+  position: absolute;
+  top: 7.5%;
+  height: 95%;
+  width: auto;
 }
 
 .navList {
@@ -68,9 +72,10 @@ body {
   position: relative;
   vertical-align: middle;
   text-align: center;
-  top: 250px;
+  top: 220px;
   background: rgba(0, 0, 0, 0.3);
   font-size: 500%;
+  overflow: hidden;
 }
 
 /**MAIN**/
@@ -101,7 +106,7 @@ em {
   height: 200px;
 }
 
-.logo {
+.tfkLogo, .imbaLogo {
   position: absolute;
   display: inline;
   top: 25%;
@@ -128,12 +133,13 @@ em {
   background-size: 100%;
   background-repeat: no-repeat;
   width: 100%;
-  height: 400px;
+  height: 320px;
   min-height: 100px;
   overflow: hidden;
   margin-top: -25%;
   padding: 8% 0% 10% 0%;
 }
+
 .screen {
   display: block;
   background: rgba(0, 0, 0, 0.3);
@@ -142,6 +148,8 @@ em {
   margin: 1%;
   padding: 1% 1% 1% 1%;
   border: 2px solid white;
+  overflow: hidden;
+  min-width: 10px;
 }
 
 .left {
@@ -149,19 +157,32 @@ em {
   padding: 1% 1% 1% 2%;
 }
 
-.right {
-  float:right;
+#trailUrl {
+  text-decoration: none;
+  color: #ff6e00;
 }
+
+.right {
+  
+}
+
+.apiText {
+  color: white;
+  display: block;
+}
+
+/**FOOTER**/
 
 .footer {
   height: 150px;
-  width:100%
+  width:100%;
+  background: rgba(0,0,0,.8);
 }
 
 .links {
   position: relative;
   float: right;
-  width: 15%;
+  width: 50%;
   margin-right: 1%;
   bottom: -60%;
 }
@@ -169,11 +190,12 @@ em {
 .links li{
   display: inline;
   margin: 1%;
+  float: right;
 }
 
 .links a {
   text-decoration: none;
-  color: black;
+  color: white;
   cursor: auto;
 }
 
