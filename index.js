@@ -16,6 +16,8 @@ function latLong () {
 function success(position) {
   lat = Math.round(position.coords.latitude);
   long = Math.round(position.coords.longitude);
+  console.log(lat);
+  console.log(long);
 }
 
 function error() {
@@ -46,12 +48,64 @@ function responseHandler() {
     //Success!
     var data = JSON.parse(this.responseText);
 
-
-      var photo = document.createElement("img");
-      photo.src = data.trails[0].imgSmallMed;
-      photo.id = "picture"
+      //PHOTO DISPLAY
+      var trailPhoto = document.createElement("img");
+      trailPhoto.src = data.trails[0].imgSmall;
+      trailPhoto.id = "picture";
       var tag = document.getElementById("trailFindLeft");
-      tag.appendChild(photo);
+      var rating = document.getElementById("rating");
+     
+      
+      //TEXT DISPLAY
+      console.log(data.trails[0]);
+      var trailName = data.trails[0].name;
+      var trailUrl = data.trails[0].url;
+      var trailStars = data.trails[0].stars;
+      var starPhoto = document.createElement("img");
+      starPhoto.id = "star"
+      
+      if (trailStars > 4.5) {
+              starPhoto.src= "images/stars/5.png";
+              rating.appendChild(starPhoto);
+          } 
+        else if (trailStars > 4 || trailStars <= 4.5) {
+              starPhoto.src= "images/stars/4.5.png";
+              rating.appendChild(starPhoto);
+          } 
+        else if (trailStars > 3.5 || trailStars <= 4) {
+              starPhoto.src= "images/stars/4.png";
+              rating.appendChild(starPhoto);
+          } 
+        else if (trailStars > 3 || trailStars <= 3.5) {
+              starPhoto.src= "images/stars/3.5.png";
+              rating.appendChild(starPhoto);
+          } 
+        else if (trailStars > 2.5 || trailStars <= 3) {
+              starPhoto.src= "images/stars/3.png";
+              rating.appendChild(starPhoto);
+          } 
+
+
+      var trailDifficulty = data.trails[0].difficulty;
+
+
+
+      document.getElementById("trailName").innerHTML = trailName;
+      document.getElementById("trailUrl").href = trailUrl;
+
+
+      tag.appendChild(trailPhoto);
+
+      
+      
+
+
+      console.log(trailName);
+      console.log(trailStars);
+      console.log(trailUrl);
+      console.log(trailDifficulty);
+
+
       return;
 
   }
