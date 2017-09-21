@@ -45,8 +45,15 @@ Riding hard <em>pushes the limits</em> of previous achievments. Let's you know w
   </div>
 
   <div class = "screen right">
-    <p class = "apiText"> Want to give mountain biking a try yourself? Input in the difficulty you're looking for then click the button here.</p>
+    <p class = "apiText"> Want to give mountain biking a try yourself? Enable location through the browser and input in the difficulty you're looking for then click the button here.</p>
+    <form>
+      <select>
+        <option id = "beginner" value = "green">Beginner</option>
+        <option id = "intermediate" value = "blue">Intermediate</option>
+        <option id = "advanced" value = "black">Advanced</option>
+      </select>
       <button id = "apiCall" type = "button" onclick= "clickHandler(); this.disabled=true; ">Voila</button>
+    </form>
   </div>
 
 </div>
