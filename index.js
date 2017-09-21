@@ -1,7 +1,7 @@
 //global variables
 var lat = 0;
 var long = 0;
-var key = '200021803-8942a6c5fbed31eeee08f074613141b1';
+var key = config.secretKey;
 //ONLOAD PREPARE
 addEventListener("load", latLong);
 
@@ -50,7 +50,7 @@ function responseHandler() {
 
       //PHOTO DISPLAY
       var trailPhoto = document.createElement("img");
-      trailPhoto.src = data.trails[0].imgSmall;
+      trailPhoto.src = data.trails[0].imgSqSmall;
       trailPhoto.id = "picture";
       var tag = document.getElementById("trailFindLeft");
       var rating = document.getElementById("rating");
@@ -88,15 +88,17 @@ function responseHandler() {
 
       var trailDifficulty = data.trails[0].difficulty;
       var trailLocation = data.trails[0].location;
-
-
-
-      document.getElementById("trailName").innerHTML = trailName;
-      document.getElementById("trailUrl").href = trailUrl;
-      document.getElementById("trailLocation").innerHTML = "<i>" +trailLocation + "</i>"
+      var trailDescription = data.trails[0].summary;
 
 
       tag.appendChild(trailPhoto);
+
+      document.getElementById("trailName").innerHTML = trailName;
+      document.getElementById("trailUrl").href = trailUrl;
+      document.getElementById("trailDescription").innerHTML = trailDescription;
+      document.getElementById("trailLocation").innerHTML = "<i>" +trailLocation + "</i>"
+
+
 
       
       
