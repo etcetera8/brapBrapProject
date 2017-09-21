@@ -161,6 +161,11 @@ em {
   height: auto;
 }
 
+#trailDescription {
+  display: inline;
+  color: white;
+}
+
 #trailUrl {
   text-decoration: none;
   color: #ff6e00;
@@ -175,6 +180,10 @@ em {
   margin: -25px 0% .5% 0%;
   width: 15%;
   height: auto;
+}
+
+#picture {
+  display: inline;
 }
 
 .right {
