@@ -1,6 +1,7 @@
 //GLOBAL VARIABLES
 var lat = 0;
 var long = 0;
+var difficulty = "";
 var key = config.secretKey;
 
 //ONLOAD PREPARE
@@ -29,7 +30,7 @@ function error() {
 
 //GET VALUES FROM USER DIFFICULTY SELECT
 function diffSave() {
-  var difficulty = document.getElementById('diffSelect').value;
+  difficulty = document.getElementById('diffSelect').value;
   console.log(difficulty)
 };
 
@@ -57,6 +58,19 @@ function responseHandler() {
   if (this.status >= 200 && this.status < 400) {
     //Success!
     var data = JSON.parse(this.responseText);
+    
+
+    //USER SELECTED DIFFICULTY
+    var trails = data.trails;
+
+        for (var i = 0; i < trails.length; i++) {
+      if (trails[i].difficulty == "green"){
+        var easy = trails[i];
+        console.log(easy);
+      }
+    }
+
+
 
       //PHOTO DISPLAY
       var trailPhoto = document.createElement("img");
