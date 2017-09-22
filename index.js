@@ -27,9 +27,18 @@ function error() {
   navigator.geolocation.getCurrentPosition(success, error);
 }
 
+//GET VALUES FROM USER DIFFICULTY SELECT
+function diffSave() {
+  var difficulty = document.getElementById('diffSelect').value;
+  console.log(difficulty)
+};
+
+
+
+
 // CLICK HANDLER EVENT / THE CLICK
 function clickHandler(event) {
-  var button= document.getElementById("apiCall");
+  var button = document.getElementById("apiCall");
   button.addEventListener("click", clickHandler);
   var request = new XMLHttpRequest();
   var url = 'https://www.mtbproject.com/data/get-trails?lat='+lat+'&lon='+long+'&maxDistance=10&key='+key+'';

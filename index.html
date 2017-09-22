@@ -46,14 +46,17 @@ Riding hard <em>pushes the limits</em> of previous achievments. Let's you know w
 
   <div class = "screen right">
     <p class = "apiText"> Want to give mountain biking a try yourself? Enable location through the browser and input in the difficulty you're looking for then click the button here.</p>
-    <form>
-      <select>
+
+    <form id = "formSelect">
+      <select id = "diffSelect">
         <option id = "beginner" value = "green">Beginner</option>
         <option id = "intermediate" value = "blue">Intermediate</option>
         <option id = "advanced" value = "black">Advanced</option>
       </select>
-      <button id = "apiCall" type = "button" onclick= "clickHandler(); this.disabled=true; ">Voila</button>
+      <button id = "apiCall" type = "button" onclick = "diffSave(); clickHandler(); this.disabled=true; ">Voila</button>
     </form>
+
+  
   </div>
 
 </div>
