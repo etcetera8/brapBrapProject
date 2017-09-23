@@ -4,6 +4,7 @@ var long = 0;
 var difficulty = "";
 var tag = "";
 var allTrails = [];
+var noTrails = [];
 var key = config.secretKey;
 
 //ONLOAD PREPARE
@@ -34,7 +35,6 @@ function error() {
 //GET VALUES FROM USER DIFFICULTY SELECT
 function diffSave() {
   difficulty = document.getElementById('diffSelect').value;
-  console.log(difficulty)
 };
 
 
@@ -64,20 +64,28 @@ function responseHandler() {
 
     //USER SELECTED DIFFICULTY
     var trails = data.trails;
-    console.log(trails.length);
 
     for (var i = 0; i < trails.length; i++) {
-      if (trails[i].difficulty == difficulty){
+      if (difficulty != trails[i].difficulty) {
+        noTrails.push(trails[i]);
+      } 
+      else if (noTrails.length == 10) {
+        console.log(noTrails);
+        console.log("there are no trails of this difficulty in the area");
+        document.getElementById("trailPicture").innerHTML = "no trails to display at this difficulty";
+        return;
+      }
+      else if (trails[i].difficulty == difficulty) {
         allTrails.push(trails[i]);  
-      } else {
+      }
+        else {
     console.log('server reached, returns error')
       }
     }
       console.log(allTrails);
-
       //PHOTO DISPLAY
       var trailPhoto = document.getElementById("trailPicture");
-      trailPhoto.src = allTrails[0].imgSmall;
+      trailPhoto.src = allTrails[0].imgSqSmall;
       trailPhoto.alt = "Picture of Trail";
      
       
@@ -120,13 +128,13 @@ function responseHandler() {
 
 //CLEARING ALL ELEMTENTS FROM THE DOM AND THE TRAILS ARRAY
     function clearElements() {
+      noTrails = [];
       allTrails = [];
       document.getElementById("trailPicture").innerhHTML="";
       document.getElementById("trailName").innerHTML = "";
       document.getElementById("trailUrl").href = "";
       document.getElementById("trailDescription").innerHTML = "";
       document.getElementById("trailLocation").innerHTML = "";
-      document.getElementById("rating").innerHTML = "";    
-  
-}
+      document.getElementById("rating").innerHTML = "";     
+    }
 
