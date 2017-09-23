@@ -2,6 +2,7 @@
 var lat = 0;
 var long = 0;
 var difficulty = "";
+var tag = "";
 var allTrails = [];
 var key = config.secretKey;
 
@@ -28,6 +29,7 @@ function error() {
 }
   navigator.geolocation.getCurrentPosition(success, error);
 }
+
 
 //GET VALUES FROM USER DIFFICULTY SELECT
 function diffSave() {
@@ -74,49 +76,40 @@ function responseHandler() {
       console.log(allTrails);
 
       //PHOTO DISPLAY
-      var trailPhoto = document.createElement("img");
-      trailPhoto.src = data.trails[i].imgSmall;
-      trailPhoto.id = "picture";
-      var tag = document.getElementById("trailFindLeft");
-      tag.appendChild(trailPhoto);
+      var trailPhoto = document.getElementById("trailPicture");
+      trailPhoto.src = allTrails[0].imgSmall;
+      trailPhoto.alt = "Picture of Trail";
      
       
       //TEXT DISPLAY
-      var trailName = data.trails[i].name;
-      var trailUrl = data.trails[i].url;
+      var trailName = allTrails[0].name;
+      var trailUrl = allTrails[0].url;
       
       //TRAIL STAR RATING//
       var rating = document.getElementById("rating");
-      var trailStars = data.trails[i].stars;
-      var starPhoto = document.createElement("img");
-      starPhoto.id = "star"
+      var trailStars = allTrails[0].stars;
       
       if (trailStars > 4.5) {
-              starPhoto.src= "images/stars/5.png";
-              rating.appendChild(starPhoto);
+              rating.src= "images/stars/5.png";
           } 
         else if (trailStars > 4 && trailStars <= 4.5) {
-              starPhoto.src= "images/stars/4.5.png";
-              rating.appendChild(starPhoto);
+              rating.src= "images/stars/4.5.png";
           } 
         else if (trailStars > 3.5 && trailStars <= 4) {
-              starPhoto.src= "images/stars/4.png";
-              rating.appendChild(starPhoto);
+              rating.src= "images/stars/4.png";
           } 
         else if (trailStars > 3 && trailStars <= 3.5) {
-              starPhoto.src= "images/stars/3.5.png";
-              rating.appendChild(starPhoto);
+              rating.src= "images/stars/3.5.png";
           } 
         else if (trailStars > 2.5 && trailStars <= 3) {
-              starPhoto.src= "images/stars/3.png";
-              rating.appendChild(starPhoto);
+              rating.src= "images/stars/3.png";
           } 
 
 
       //SAVE ELEMENTS TO VARS THEN DISPLAY TO DOM    
-      var trailDifficulty = data.trails[i].difficulty;
-      var trailLocation = data.trails[i].location;
-      var trailDescription = data.trails[i].summary;
+      var trailDifficulty = allTrails[0].difficulty;
+      var trailLocation = allTrails[0].location;
+      var trailDescription = allTrails[0].summary;
 
       document.getElementById("trailName").innerHTML = trailName;
       document.getElementById("trailUrl").href = trailUrl;
@@ -124,4 +117,16 @@ function responseHandler() {
       document.getElementById("trailLocation").innerHTML = "<i>" +trailLocation + "</i>"
       }
     }
+
+//CLEARING ALL ELEMTENTS FROM THE DOM AND THE TRAILS ARRAY
+    function clearElements() {
+      allTrails = [];
+      document.getElementById("trailPicture").innerhHTML="";
+      document.getElementById("trailName").innerHTML = "";
+      document.getElementById("trailUrl").href = "";
+      document.getElementById("trailDescription").innerHTML = "";
+      document.getElementById("trailLocation").innerHTML = "";
+      document.getElementById("rating").innerHTML = "";    
+  
+}
 
