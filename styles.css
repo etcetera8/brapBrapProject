@@ -144,7 +144,7 @@ em {
   display: block;
   background: rgba(0, 0, 0, 0.3);
   width: 45%;
-  height: 95%;
+  height: 99%;
   margin: 1%;
   padding: 1% 1% 1% 1%;
   border: 2px solid white;
@@ -178,8 +178,8 @@ em {
 
 #rating {
   display: block;
-  margin: -5% 0% 5% 0%;
-  width: 15%;
+  margin: 0% 0% 5% 0%;
+  width: 10%;
   height: auto;
 }
 
