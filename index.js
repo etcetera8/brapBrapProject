@@ -2,6 +2,7 @@
 var lat = 0;
 var long = 0;
 var difficulty = "";
+var allTrails = [];
 var key = config.secretKey;
 
 //ONLOAD PREPARE
@@ -35,8 +36,6 @@ function diffSave() {
 };
 
 
-
-
 // CLICK HANDLER EVENT / THE CLICK
 function clickHandler(event) {
   var button = document.getElementById("apiCall");
@@ -46,9 +45,10 @@ function clickHandler(event) {
   request.open('GET', url, true);
   request.addEventListener("load", responseHandler);
   request.send();
+  //ERROR
   request.onerror = function() {
-    //error of some sort
-    console.log('error of a sort')
+    
+    console.log('Error connecting to server');
   };
 }
 
@@ -62,32 +62,32 @@ function responseHandler() {
 
     //USER SELECTED DIFFICULTY
     var trails = data.trails;
+    console.log(trails.length);
 
-        for (var i = 0; i < trails.length; i++) {
-      if (trails[i].difficulty == "green"){
-        var easy = trails[i];
-        console.log(easy);
+    for (var i = 0; i < trails.length; i++) {
+      if (trails[i].difficulty == difficulty){
+        allTrails.push(trails[i]);  
+      } else {
+    console.log('server reached, returns error')
       }
     }
-
-
+      console.log(allTrails);
 
       //PHOTO DISPLAY
       var trailPhoto = document.createElement("img");
-      trailPhoto.src = data.trails[0].imgSmall;
+      trailPhoto.src = data.trails[i].imgSmall;
       trailPhoto.id = "picture";
       var tag = document.getElementById("trailFindLeft");
       tag.appendChild(trailPhoto);
      
       
       //TEXT DISPLAY
-      console.log(data.trails[0]);
-      var trailName = data.trails[0].name;
-      var trailUrl = data.trails[0].url;
+      var trailName = data.trails[i].name;
+      var trailUrl = data.trails[i].url;
       
       //TRAIL STAR RATING//
       var rating = document.getElementById("rating");
-      var trailStars = data.trails[0].stars;
+      var trailStars = data.trails[i].stars;
       var starPhoto = document.createElement("img");
       starPhoto.id = "star"
       
@@ -113,35 +113,15 @@ function responseHandler() {
           } 
 
 
-      var trailDifficulty = data.trails[0].difficulty;
-      var trailLocation = data.trails[0].location;
-      var trailDescription = data.trails[0].summary;
-
-
-      
+      //SAVE ELEMENTS TO VARS THEN DISPLAY TO DOM    
+      var trailDifficulty = data.trails[i].difficulty;
+      var trailLocation = data.trails[i].location;
+      var trailDescription = data.trails[i].summary;
 
       document.getElementById("trailName").innerHTML = trailName;
       document.getElementById("trailUrl").href = trailUrl;
       document.getElementById("trailDescription").innerHTML = trailDescription;
       document.getElementById("trailLocation").innerHTML = "<i>" +trailLocation + "</i>"
+      }
+    }
 
-
-
-      
-      
-
-
-      console.log(trailName);
-      console.log(trailStars);
-      console.log(trailUrl);
-      console.log(trailDifficulty);
-
-
-      return;
-
-  }
-
-  else {
-    console.log('server reached, returns error')
-  }
-}
