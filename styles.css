@@ -176,8 +176,9 @@ em {
   margin-bottom: 1%;
 }
 
-#star {
-  margin: -25px 0% .5% 0%;
+#rating {
+  display: block;
+  margin: -5% 0% 5% 0%;
   width: 15%;
   height: auto;
 }
