@@ -37,9 +37,10 @@ Riding hard <em>pushes the limits</em> of previous achievments. Let's you know w
 <div id = "trailFind" class= "api">
   <div id = "trailFindLeft" class = "screen left ">
   <a id = "trailUrl"><h3 id = "trailName"></h3></a>
+  <img id = "rating"/>
   <p id = "trailDescription"></p>
   <p id = "trailLocation"></p>
-  <div id = "rating"> </div>
+  <img id = "trailPicture"/>
 
 
   </div>
@@ -49,11 +50,13 @@ Riding hard <em>pushes the limits</em> of previous achievments. Let's you know w
 
     <form id = "formSelect">
       <select id = "diffSelect">
-        <option id = "beginner" value = "green">Beginner</option>
+        <option id = "easy" value = "green">Easy</option>
+        <option id = "beginner" value = "greenBlue">Beginner</option>
         <option id = "intermediate" value = "blue">Intermediate</option>
-        <option id = "advanced" value = "black">Advanced</option>
+        <option id = "advanced" value = "blueBlack">Advanced</option>
+        <option id = "Expert" value = "dblack">Expert</option>
       </select>
-      <button id = "apiCall" type = "button" onclick = "diffSave(); clickHandler(); this.disabled=true; ">Voila</button>
+      <button id = "apiCall" type = "button" onclick = "clearElements(); diffSave(); clickHandler();"">Voila</button>
     </form>
 
   
