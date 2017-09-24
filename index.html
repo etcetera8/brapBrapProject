@@ -28,8 +28,8 @@ Riding hard <em>pushes the limits</em> of previous achievments. Let's you know w
 
 <div class= "help">
 
-  <a href="http://www.tripsforkids.org/"><img class="logo tfkLogo" src = "images/tfkNew.png" alt = "Trips of Kids Logo"/><a/>
-  <a href="https://www.imba.com/"><img class ="logo imbaLogo" src = "images/IMBA.png" alt = "IMBA Logo" /></a>
+  <a href="http://www.tripsforkids.org/" target = "_blank"><img class="logo tfkLogo" src = "images/tfkNew.png" alt = "Trips of Kids Logo"/><a/>
+  <a href="https://www.imba.com/ " target = "_blank"><img class ="logo imbaLogo" src = "images/IMBA.png" alt = "IMBA Logo" /></a>
  </div>
 
 </div>
@@ -46,16 +46,24 @@ Riding hard <em>pushes the limits</em> of previous achievments. Let's you know w
   </div>
 
   <div class = "screen right">
-    <p class = "apiText"> Want to give mountain biking a try yourself? Enable location through the browser and input in the difficulty you're looking for then click the button here.</p>
+    <p class = "apiText"><em> Want to give mountain biking a try yourself?</em><br /><br />Enable location through the browser and input in the difficulty you're looking for and the distance from your location and get out and ride.</p>
 
     <form id = "formSelect">
-      <select id = "diffSelect">
-        <option id = "easy" value = "green">Easy</option>
-        <option id = "beginner" value = "greenBlue">Beginner</option>
-        <option id = "intermediate" value = "blue">Intermediate</option>
-        <option id = "advanced" value = "blueBlack">Advanced</option>
-        <option id = "Expert" value = "dblack">Expert</option>
-      </select>
+      <label>Difficulty
+        <select id = "diffSelect">
+          <option id = "easy" value = "green">Easy</option>
+          <option id = "beginner" value = "greenBlue" selected= "selected">Beginner</option>
+          <option id = "intermediate" value = "blue">Intermediate</option>
+          <option id = "advanced" value = "blueBlack">Advanced</option>
+          <option id = "Expert" value = "dblack">Expert</option>
+        </select>
+      </label>
+    
+
+      <label>Distance (in miles)
+        <input id = "distSelect" type = "number" value = "50" min = "0" max ="200" step = "5"></input>
+      </label>
+      
       <button id = "apiCall" type = "button" onclick = "clearElements(); diffSave(); clickHandler();">Voila</button>
     </form> 
   </div>
@@ -64,9 +72,9 @@ Riding hard <em>pushes the limits</em> of previous achievments. Let's you know w
 
 <div id = "contact" class = "footer">
   <ul class = "links">
-    <li><a href = "https://github.com/etcetera8">GitHub</a></li>
-    <li><a href = "https://codepen.io/etcetera8/">CodePen</a></li>
-    <li><a href = "https://www.linkedin.com/in/parker-lindley-7b587435/">LinkedIn</a></li>
+    <li><a href = "https://github.com/etcetera8" target = "_blank">GitHub</a></li>
+    <li><a href = "https://codepen.io/etcetera8/" target = "_blank">CodePen</a></li>
+    <li><a href = "https://www.linkedin.com/in/parker-lindley-7b587435/" target = "_blank">LinkedIn</a></li>
   </ul>
 </div>
 
