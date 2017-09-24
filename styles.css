@@ -125,7 +125,6 @@ em {
 }
 
 /**Trail Finder **/
-
 #trailFind {
   display: block;
   position: relative;
@@ -188,16 +187,42 @@ em {
 }
 
 .right {
-  
+  padding: 1% 1% 1% 2%;
 }
 
 .apiText {
+  margin: 2%;
   color: white;
   display: block;
 }
 
-/**FOOTER**/
+#diffSelect {
+  margin-top: 5%;
 
+}
+
+#distSelect {
+  border-radius: 5px;
+  -webkit-appearance: none;
+  height: 12px;
+  box-shadow: none;
+}
+
+label {
+  color: white;
+  display: block;
+  margin:2%;
+}
+
+#apiCall {
+margin: 2%;
+}
+
+
+
+
+
+/**FOOTER**/
 .footer {
   height: 150px;
   width:100%;
