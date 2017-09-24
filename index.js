@@ -49,7 +49,6 @@ function clickHandler(event) {
   request.send();
   //ERROR
   request.onerror = function() {
-    
     console.log('Error connecting to server');
   };
 }
@@ -57,10 +56,13 @@ function clickHandler(event) {
 // STORE THE DATA FROM THE CLICK
 function responseHandler() {
 
+
+
   if (this.status >= 200 && this.status < 400) {
     //Success!
     var data = JSON.parse(this.responseText);
-    
+      noTrails.length = 0;
+      allTrails.length = 0;
 
     //USER SELECTED DIFFICULTY
     var trails = data.trails;
@@ -69,12 +71,6 @@ function responseHandler() {
       if (difficulty != trails[i].difficulty) {
         noTrails.push(trails[i]);
       } 
-      else if (noTrails.length == 10) {
-        console.log(noTrails);
-        console.log("there are no trails of this difficulty in the area");
-        document.getElementById("trailPicture").innerHTML = "no trails to display at this difficulty";
-        return;
-      }
       else if (trails[i].difficulty == difficulty) {
         allTrails.push(trails[i]);  
       }
@@ -82,10 +78,12 @@ function responseHandler() {
     console.log('server reached, returns error')
       }
     }
-      console.log(allTrails);
+
+    console.log(noTrails);
+
       //PHOTO DISPLAY
       var trailPhoto = document.getElementById("trailPicture");
-      trailPhoto.src = allTrails[0].imgSqSmall;
+      trailPhoto.src = allTrails[0].imgSmall;
       trailPhoto.alt = "Picture of Trail";
      
       
@@ -128,13 +126,14 @@ function responseHandler() {
 
 //CLEARING ALL ELEMTENTS FROM THE DOM AND THE TRAILS ARRAY
     function clearElements() {
-      noTrails = [];
-      allTrails = [];
-      document.getElementById("trailPicture").innerhHTML="";
+      document.getElementById("trailPicture").src="";
       document.getElementById("trailName").innerHTML = "";
       document.getElementById("trailUrl").href = "";
-      document.getElementById("trailDescription").innerHTML = "";
+      document.getElementById("trailDescription").innerHTML = "<i>No trails of that difficulty in this area, try a different difficulty or expanding the range of the search</i>";
       document.getElementById("trailLocation").innerHTML = "";
-      document.getElementById("rating").innerHTML = "";     
+      document.getElementById("rating").src = "";  
+      noTrails.length = 0;
+      allTrails.length = 0;  
+
     }
 
