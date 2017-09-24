@@ -2,6 +2,7 @@
 var lat = 0;
 var long = 0;
 var difficulty = "";
+var dist = 50;
 var tag = "";
 var allTrails = [];
 var noTrails = [];
@@ -19,8 +20,8 @@ function latLong () {
   }
 
 function success(position) {
-  lat = Math.round(position.coords.latitude);
-  long = Math.round(position.coords.longitude);
+  lat = Math.ceil( position.coords.latitude * 100 ) / 100;
+  long = Math.ceil(position.coords.longitude * 100) / 100;
   console.log(lat);
   console.log(long);
 }
@@ -35,6 +36,8 @@ function error() {
 //GET VALUES FROM USER DIFFICULTY SELECT
 function diffSave() {
   difficulty = document.getElementById('diffSelect').value;
+  dist = document.getElementById("distSelect").value;
+  console.log(dist);
 };
 
 
@@ -43,7 +46,7 @@ function clickHandler(event) {
   var button = document.getElementById("apiCall");
   button.addEventListener("click", clickHandler);
   var request = new XMLHttpRequest();
-  var url = 'https://www.mtbproject.com/data/get-trails?lat='+lat+'&lon='+long+'&maxDistance=10&key='+key+'';
+  var url = 'https://www.mtbproject.com/data/get-trails?lat='+lat+'&lon='+long+'&maxDistance='+dist+'&maxResults=100&key='+key+'';
   request.open('GET', url, true);
   request.addEventListener("load", responseHandler);
   request.send();
@@ -78,8 +81,6 @@ function responseHandler() {
     console.log('server reached, returns error')
       }
     }
-
-    console.log(noTrails);
 
       //PHOTO DISPLAY
       var trailPhoto = document.getElementById("trailPicture");
