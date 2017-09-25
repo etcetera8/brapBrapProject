@@ -15,7 +15,8 @@ addEventListener("load", latLong);
 function latLong () {
   if ("geolocation" in navigator) {
     console.log("geolocation attained")
-  } else {
+  } 
+  else {
     console.log("geolocation not attained")
   }
 
@@ -32,7 +33,6 @@ function error() {
   navigator.geolocation.getCurrentPosition(success, error);
 }
 
-
 //GET VALUES FROM USER DIFFICULTY SELECT
 function diffSave() {
   difficulty = document.getElementById('diffSelect').value;
@@ -40,6 +40,16 @@ function diffSave() {
   console.log(dist);
 };
 
+function trailList () {
+  var ulList = document.getElementById("trailList");
+
+  for (var j = 1; j <= 5; j++) {
+    var listItem = document.createElement("li");
+    listItem.appendChild(document.createTextNode(allTrails[j].name));
+    ulList.appendChild(listItem);
+  }
+  return ulList;
+}
 
 // CLICK HANDLER EVENT / THE CLICK
 function clickHandler(event) {
@@ -58,16 +68,14 @@ function clickHandler(event) {
 
 // STORE THE DATA FROM THE CLICK
 function responseHandler() {
-
-
-
   if (this.status >= 200 && this.status < 400) {
-    //Success!
+    //SUCCESS
     var data = JSON.parse(this.responseText);
+      //RESET ARRAYS to 0
       noTrails.length = 0;
       allTrails.length = 0;
 
-    //USER SELECTED DIFFICULTY
+    //pushing trails to arrays and displaying
     var trails = data.trails;
 
     for (var i = 0; i < trails.length; i++) {
@@ -77,17 +85,20 @@ function responseHandler() {
       else if (trails[i].difficulty == difficulty) {
         allTrails.push(trails[i]);  
       }
-        else {
-    console.log('server reached, returns error')
+      else {
+        console.log('server reached, returns error')
       }
     }
+    console.log(allTrails);
+
+    trailList();
+
 
       //PHOTO DISPLAY
       var trailPhoto = document.getElementById("trailPicture");
       trailPhoto.src = allTrails[0].imgSmall;
       trailPhoto.alt = "Picture of Trail";
      
-      
       //TEXT DISPLAY
       var trailName = allTrails[0].name;
       var trailUrl = allTrails[0].url;
@@ -112,12 +123,10 @@ function responseHandler() {
               rating.src= "images/stars/3.png";
           } 
 
-
       //SAVE ELEMENTS TO VARS THEN DISPLAY TO DOM    
       var trailDifficulty = allTrails[0].difficulty;
       var trailLocation = allTrails[0].location;
       var trailDescription = allTrails[0].summary;
-
       document.getElementById("trailName").innerHTML = trailName;
       document.getElementById("trailUrl").href = trailUrl;
       document.getElementById("trailDescription").innerHTML = trailDescription;
@@ -135,6 +144,5 @@ function responseHandler() {
       document.getElementById("rating").src = "";  
       noTrails.length = 0;
       allTrails.length = 0;  
-
     }
 
