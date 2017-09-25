@@ -40,15 +40,23 @@ function diffSave() {
   console.log(dist);
 };
 
+
 function trailList () {
   var ulList = document.getElementById("trailList");
-
+  ulList.innerHTML = "";
   for (var j = 1; j <= 5; j++) {
     var listItem = document.createElement("li");
-    listItem.appendChild(document.createTextNode(allTrails[j].name));
+    listItem.setAttribute("id", ""+j+"");
+    listItem.setAttribute("onClick", "clickName");
+    var clickList = listItem.appendChild(document.createTextNode(allTrails[j].name));
     ulList.appendChild(listItem);
   }
   return ulList;
+}
+
+function clickName() {
+ var elementName = document.getElementById(""+j+"");
+ console.log(elementName);
 }
 
 // CLICK HANDLER EVENT / THE CLICK
