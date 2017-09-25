@@ -198,7 +198,6 @@ em {
 
 #diffSelect {
   margin-top: 5%;
-
 }
 
 #distSelect {
@@ -215,7 +214,12 @@ label {
 }
 
 #apiCall {
-margin: 2%;
+  margin: 2%;
+}
+
+#trailList, #trailList li{
+  text-decoration: none;
+  color: white;
 }
 
 
