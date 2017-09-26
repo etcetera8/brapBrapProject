@@ -186,6 +186,21 @@ em {
   display: inline;
 }
 
+#trailList {
+  float: right;
+  margin-right: 5%;
+} 
+#trailList, #trailList li{
+  text-decoration: none;
+  color: white;
+  list-style: none;
+}
+
+#trailList li:hover {
+  color: #ff6e00;
+  cursor: pointer;
+}
+
 .right {
   padding: 1% 1% 1% 2%;
 }
@@ -216,15 +231,6 @@ label {
 #apiCall {
   margin: 2%;
 }
-
-#trailList, #trailList li{
-  text-decoration: none;
-  color: white;
-}
-
-
-
-
 
 /**FOOTER**/
 .footer {
