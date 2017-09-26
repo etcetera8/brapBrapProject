@@ -27,31 +27,25 @@ Riding hard <em>pushes the limits</em> of previous achievments. Let's you know w
 <br /> <br />Volunteer with your local <em>Trips for Kids</em> chapter to connect at-risk youth with the natural world and show them the joys of mountain biking and living a healthy lifestyle. You can also visit the <em>International Mountain Bike Associations (IMBA)</em> website to volunteer your time either fighting for mountain bike advocacy or even getting your hands dirty with local trail building and maintenance. </p>
 
 <div class= "help">
-
   <a href="http://www.tripsforkids.org/" target = "_blank"><img class="logo tfkLogo" src = "images/tfkNew.png" alt = "Trips of Kids Logo"/><a/>
   <a href="https://www.imba.com/ " target = "_blank"><img class ="logo imbaLogo" src = "images/IMBA.png" alt = "IMBA Logo" /></a>
- </div>
+</div>
 
 </div>
 
 <div id = "trailFind" class= "api">
   <div id = "trailFindLeft" class = "screen left ">
-  <a id = "trailUrl"><h3 id = "trailName"></h3></a>
-  <img id = "rating"/>
-  <p id = "trailDescription"></p>
-  <p id = "trailLocation"></p>
-  <img id = "trailPicture"/>
-  <div class = "trailsBox">
-  <ul id = "trailList">More trails by you -
-  </ul>
-  </div>
-
-
+    <a id = "trailUrl"><h3 id = "trailName"></h3></a>
+    <img id = "rating"/>
+    <p id = "trailDescription"></p>
+    <p id = "trailLocation"></p>
+    <img id = "trailPicture"/>
+    <ul id = "trailList">
+    </ul>
   </div>
 
   <div class = "screen right">
-    <p class = "apiText"><span class = "userPrompt">Want to give mountain biking a try yourself?</span><br /><br />Enable location through the browser, choose the difficulty you're looking to ride and the distance from your location. Click the title to be taken to MTB Projects website for more information and to download the app to use on the trails!</p>
-
+    <p class = "apiText"><span class = "userPrompt">Want to give mountain biking a try yourself?</span><br /><br />Enable location through the browser, choose the difficulty you're looking to ride and the distance from your location and click the button! <br /><br /> Click the trails name to be taken to MTB Projects website for more information and to download the app to use on the trails! Click the other trails on the right side of the screen for more similair trails.</p>
     <form id = "formSelect">
       <label>Difficulty
         <select id = "diffSelect">
@@ -62,19 +56,12 @@ Riding hard <em>pushes the limits</em> of previous achievments. Let's you know w
           <option id = "Expert" value = "dblack">Expert</option>
         </select>
       </label>
-    
-
       <label>Distance (in miles)
         <input id = "distSelect" type = "number" value = "50" min = "0" max ="200" step = "5"></input>
-      </label>
-      
-      <button id = "apiCall" type = "button" onclick = "clearElements(); diffSave(); clickHandler();">Voila</button>
+      </label>  
+      <button id = "apiCall" type = "button" onclick = "clearElements(); diffSave(); clickHandler();">Get Trails</button>
     </form> 
-
-   
-
   </div>
-
 </div>
 
 <div id = "contact" class = "footer">
@@ -84,9 +71,6 @@ Riding hard <em>pushes the limits</em> of previous achievments. Let's you know w
     <li><a href = "https://www.linkedin.com/in/parker-lindley-7b587435/" target = "_blank">LinkedIn</a></li>
   </ul>
 </div>
-
-
-
 
 </body>
 </html>
