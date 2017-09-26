@@ -98,7 +98,7 @@ body {
   font-size: 18px;
 }
 
-em {
+em, .userPrompt {
   color: #ff6e00;
 }
 .help {
@@ -156,6 +156,10 @@ em {
   padding: 1% 1% 1% 2%;
 }
 
+.trailBox {
+  border: 1px solid white;
+}
+
 #trailName {
   height: auto;
 }
@@ -188,8 +192,12 @@ em {
 
 #trailList {
   float: right;
-  margin-right: 5%;
+  margin: -6% 5% 0% 18%;
+  position: absolute;
+  border: 1px solid white;
+  overflow: hidden;
 } 
+
 #trailList, #trailList li{
   text-decoration: none;
   color: white;
@@ -204,6 +212,12 @@ em {
 .right {
   padding: 1% 1% 1% 2%;
 }
+
+ .userPrompt {
+  margin: 2% 2% 2% 0%;
+  font-size: 22px;
+  font-style: italic;
+ }
 
 .apiText {
   margin: 2%;
