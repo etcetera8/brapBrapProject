@@ -140,6 +140,7 @@ em, .userPrompt {
 }
 
 .screen {
+  position:relative;
   display: block;
   background: rgba(0, 0, 0, 0.3);
   width: 45%;
@@ -158,6 +159,9 @@ em, .userPrompt {
 
 .trailBox {
   border: 1px solid white;
+  position: absolute;
+  width:20%;
+  height: 100px;
 }
 
 #trailName {
@@ -191,11 +195,12 @@ em, .userPrompt {
 }
 
 #trailList {
-  float: right;
   margin: -6% 5% 0% 18%;
   position: absolute;
-  border: 1px solid white;
-  overflow: hidden;
+  top:65%;
+  left: 35%;
+  width:50%;
+  height:30%;
 } 
 
 #trailList, #trailList li{
@@ -204,9 +209,19 @@ em, .userPrompt {
   list-style: none;
 }
 
-#trailList li:hover {
+#trailList li{
+  margin: 1%;
   color: #ff6e00;
+  font-size: 13px;
+  background-color: rgba(0,0,0,0.2);
+  width: 75%;
+  padding: 1% 0% 1% 5%;
+}
+
+
+#trailList li:hover {
   cursor: pointer;
+  color: white;
 }
 
 .right {
