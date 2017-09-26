@@ -6,7 +6,9 @@ var dist = 50;
 var tag = "";
 var allTrails = [];
 var noTrails = [];
+var trailObject =[];
 var key = config.secretKey;
+var trailPhoto = "";
 
 //ONLOAD PREPARE
 addEventListener("load", latLong);
@@ -33,21 +35,22 @@ function error() {
   navigator.geolocation.getCurrentPosition(success, error);
 }
 
-//GET VALUES FROM USER DIFFICULTY SELECT
+//GET DISTANCE AND DIFFICULTY FROM USER
 function diffSave() {
   difficulty = document.getElementById('diffSelect').value;
   dist = document.getElementById("distSelect").value;
   console.log(dist);
 };
 
-
+//CREATES LIST OF OTHER TRAILS
 function trailList () {
   var ulList = document.getElementById("trailList");
   ulList.innerHTML = "";
+  
   for (var j = 1; j <= 5; j++) {
     var listItem = document.createElement("li");
     listItem.setAttribute("id", ""+j+"");
-    listItem.setAttribute("onClick", "clickName");
+    listItem.onclick = clickName;
     var clickList = listItem.appendChild(document.createTextNode(allTrails[j].name));
     ulList.appendChild(listItem);
   }
@@ -55,9 +58,42 @@ function trailList () {
 }
 
 function clickName() {
- var elementName = document.getElementById(""+j+"");
- console.log(elementName);
-}
+    clearElements();
+    console.log("working click");
+    console.log(this.id);
+    var selectTrail = this.id;
+    console.log(selectTrail);
+
+      trailPhoto = document.getElementById("trailPicture");
+      trailPhoto.src = trailObject[selectTrail].trailPic;
+      trailPhoto.alt = "Picture of Trail";
+      
+      //TRAIL STAR RATING DISPLAY
+      var rating = document.getElementById("rating");
+      var trailStars = trailObject[selectTrail].trailPointys;
+      
+      if (trailStars > 4.5) {
+              rating.src= "images/stars/5.png";
+          } 
+        else if (trailStars > 4 && trailStars <= 4.5) {
+              rating.src= "images/stars/4.5.png";
+          } 
+        else if (trailStars > 3.5 && trailStars <= 4) {
+              rating.src= "images/stars/4.png";
+          } 
+        else if (trailStars > 3 && trailStars <= 3.5) {
+              rating.src= "images/stars/3.5.png";
+          } 
+        else if (trailStars > 2.5 && trailStars <= 3) {
+              rating.src= "images/stars/3.png";
+          } 
+
+      //TEXT ELEMENT DISPLAY   
+      document.getElementById("trailName").innerHTML = trailObject[selectTrail].trailTitle;
+      document.getElementById("trailUrl").href = trailObject[selectTrail].trailUrls;
+      document.getElementById("trailDescription").innerHTML = trailObject[selectTrail].trailSummary;
+      document.getElementById("trailLocation").innerHTML = "<i>" +trailObject[selectTrail].trailPlace + "</i>"
+    }
 
 // CLICK HANDLER EVENT / THE CLICK
 function clickHandler(event) {
@@ -97,23 +133,35 @@ function responseHandler() {
         console.log('server reached, returns error')
       }
     }
-    console.log(allTrails);
 
     trailList();
 
-
+    //SAVING TRAIL TO OBJECT
+    
+    for (var b = 0; b <= 5;b++ ){
+      trailObject[b] = {
+      trailPic: allTrails[b].imgSmall,
+      trailTitle: allTrails[b].name,
+      trailUrls: allTrails[b].url,
+      trailPointys: allTrails[b].stars,
+      trailHard:allTrails[b].difficulty,
+      trailPlace: allTrails[b].location,
+      trailSummary: allTrails[b].summary,
+    }
+  }
+    
+    console.log(trailObject);
+ 
+    
+    function displayAll() {
       //PHOTO DISPLAY
       var trailPhoto = document.getElementById("trailPicture");
-      trailPhoto.src = allTrails[0].imgSmall;
+      trailPhoto.src = trailObject[0].trailPic;
       trailPhoto.alt = "Picture of Trail";
-     
-      //TEXT DISPLAY
-      var trailName = allTrails[0].name;
-      var trailUrl = allTrails[0].url;
       
-      //TRAIL STAR RATING//
+      //TRAIL STAR RATING DISPLAY
       var rating = document.getElementById("rating");
-      var trailStars = allTrails[0].stars;
+      var trailStars = trailObject[0].trailPointys;
       
       if (trailStars > 4.5) {
               rating.src= "images/stars/5.png";
@@ -131,15 +179,14 @@ function responseHandler() {
               rating.src= "images/stars/3.png";
           } 
 
-      //SAVE ELEMENTS TO VARS THEN DISPLAY TO DOM    
-      var trailDifficulty = allTrails[0].difficulty;
-      var trailLocation = allTrails[0].location;
-      var trailDescription = allTrails[0].summary;
-      document.getElementById("trailName").innerHTML = trailName;
-      document.getElementById("trailUrl").href = trailUrl;
-      document.getElementById("trailDescription").innerHTML = trailDescription;
-      document.getElementById("trailLocation").innerHTML = "<i>" +trailLocation + "</i>"
+      //TEXT ELEMENT DISPLAY   
+      document.getElementById("trailName").innerHTML = trailObject[0].trailTitle;
+      document.getElementById("trailUrl").href = trailObject[0].trailUrls;
+      document.getElementById("trailDescription").innerHTML = trailObject[0].trailSummary;
+      document.getElementById("trailLocation").innerHTML = "<i>" +trailObject[0].trailPlace + "</i>"
+        }
       }
+      displayAll();
     }
 
 //CLEARING ALL ELEMTENTS FROM THE DOM AND THE TRAILS ARRAY
