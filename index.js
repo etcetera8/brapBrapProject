@@ -7,6 +7,7 @@ var tag = "";
 var allTrails = [];
 var noTrails = [];
 var trailObject = [];
+
 var key = "200021803-8942a6c5fbed31eeee08f074613141b1";
 var trailPhoto = "";
 
